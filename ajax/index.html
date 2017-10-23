@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="ajax.js"></script>
+	<style>
+		li{
+			list-style: none;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="myH">ajax test</h1>
+	<script>
+		var myH = document.getElementById('myH');
+
+		getJSON('https://www.aulence.com/data/hardware-info.json',function(doc){
+			console.log(doc)
+			myH.innerHTML = `
+				<ul>
+					<li>${doc.mainboard}</li>
+					<li>${doc.cpu}</li>
+					<li>${doc.cpu}</li>
+					<li>${doc.cpu}</li>
+				</ul>
+			`;
+		})
+	</script>
+</body>
+</html>
