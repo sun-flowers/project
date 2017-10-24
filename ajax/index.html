@@ -5,15 +5,26 @@
 	<title>Document</title>
 	<script src="ajax.js"></script>
 	<style>
-		li{
+		/*li{
 			list-style: none;
+			border:1px solid red;
+		}*/
+		#myH,tr,td{
+			border-collapse:separate;
+			border-spacing:1px 1px;
 			border:1px solid red;
 		}
 	</style>
 </head>
 <body>
 
-	<h1 id="myH">ajax test</h1>
+	<table id="myH">
+		<tr>
+			<td>姓名</td>
+			<td>年龄</td>
+			<td>性别</td>
+		</tr>
+	</table>
 
 	<script>
 		window.onload = function(){
@@ -21,13 +32,13 @@
 
 			getJSON('a.json',function(doc){
 				console.log(doc)
-				myH.innerHTML = `
-					<ul>
-						<li>${doc.name}</li>
-						<li>${doc.age}</li>
-						<li>${doc.jender}</li>
-					</ul>
-				`;
+				 myH.innerHTML += `
+				<tr>
+					<td>${doc.name}</td>
+					<td>${doc.age}</td>
+					<td>${doc.jender}</td>
+				</tr>
+				 `;
 			});
 
 		}
