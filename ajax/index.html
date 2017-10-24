@@ -12,21 +12,27 @@
 	</style>
 </head>
 <body>
-	<h1 id="myH">ajax test</h1>
-	<script>
-		var myH = document.getElementById('myH');
 
-		getJSON('https://www.aulence.com/data/hardware-info.json',function(doc){
-			console.log(doc)
-			myH.innerHTML = `
-				<ul>
-					<li>${doc.mainboard}</li>
-					<li>${doc.cpu}</li>
-					<li>${doc.cpu}</li>
-					<li>${doc.cpu}</li>
-				</ul>
-			`;
-		})
+	<h1 id="myH">ajax test</h1>
+
+	<script>
+		window.onload = function(){
+			var myH = document.getElementById('myH');
+
+			getJSON('a.json',function(doc){
+				console.log(doc)
+				myH.innerHTML = `
+					<ul>
+						<li>${doc.name}</li>
+						<li>${doc.age}</li>
+						<li>${doc.jender}</li>
+					</ul>
+				`;
+			});
+
+		}
+		
 	</script>
+	
 </body>
 </html>
