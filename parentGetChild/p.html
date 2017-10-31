@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>parent</title>
+</head>
+<body>
+	<h1 id="p">这是父页面</h1>
+	<iframe src="c.html" frameborder="1" id="myIframeP"></iframe>
+	<button type="button" id="btnP">发送</button>
+<script>
+	var myIframeP = document.getElementById('myIframeP')
+	var btnP = document.getElementById('btnP')
+
+	btnP.onclick = function(){
+		var cWindow = myIframeP.contentWindow;
+
+		var cDocument = myIframeP.contentDocument;
+
+		var cH1 = cDocument.getElementById('c');
+		cH1.innerHTML = "888";
+
+		cWindow.cFunc();	
+	}
+
+	function pFunc(){
+		console.log('调用父页面的方法')
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>child</title>
+</head>
+<body>
+	<h1 id="c">inner</h1>
+	<button id="setBtn" id="btnc">按钮</button>
+	<script>
+		var setBtn = document.getElementById('setBtn')
+		setBtn.onclick = function(){
+			var pWin = window.parent;
+            var pDoc = pWin.document;
+           
+            var cinner = pDoc.getElementById('p');
+            cinner.innerHTML = "Hello 子页面内容";
+
+            pWin.pFunc()
+
+		}
+		function cFunc(){
+			console.log('调用子页面的方法')
+		}
+	</script>
+</body>
+</html>
